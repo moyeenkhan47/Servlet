@@ -1,0 +1,60 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<web-app xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns="https://jakarta.ee/xml/ns/jakartaee" xsi:schemaLocation="https://jakarta.ee/xml/ns/jakartaee https://jakarta.ee/xml/ns/jakartaee/web-app_6_0.xsd" id="WebApp_ID" version="6.0">
+  <display-name>HRM</display-name>
+  <welcome-file-list>
+    <welcome-file>index.html</welcome-file>
+    <welcome-file>index.jsp</welcome-file>
+    <welcome-file>index.htm</welcome-file>
+    <welcome-file>default.html</welcome-file>
+    <welcome-file>default.jsp</welcome-file>
+    <welcome-file>default.htm</welcome-file>
+  </welcome-file-list>
+  
+  <!-- Existing servlet definition for UserController -->
+  <servlet>
+    <description></description>
+    <display-name>UserController</display-name>
+    <servlet-name>UserController</servlet-name>
+    <servlet-class>com.hrm.controller.UserController</servlet-class>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>UserController</servlet-name>
+    <url-pattern>/register</url-pattern>
+  </servlet-mapping>
+
+  <!-- New servlet definition for UpdateUserController -->
+  <servlet>
+    <description></description>
+    <display-name>UpdateUserController</display-name>
+    <servlet-name>UpdateUserController</servlet-name>
+    <servlet-class>com.hrm.controller.UpdateUserController</servlet-class>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>UpdateUserController</servlet-name>
+    <url-pattern>/updateUser</url-pattern>
+  </servlet-mapping>
+
+  <!-- New servlet definition for DeleteUserController -->
+  <servlet>
+    <description></description>
+    <display-name>DeleteUserController</display-name>
+    <servlet-name>DeleteUserController</servlet-name>
+    <servlet-class>com.hrm.controller.DeleteUserController</servlet-class>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>DeleteUserController</servlet-name>
+    <url-pattern>/deleteUser</url-pattern>
+  </servlet-mapping>
+ <!-- New servlet definition for SearchUserController -->
+  <servlet>
+    <description></description>
+    <display-name>SearchController</display-name>
+    <servlet-name>SearchController</servlet-name>
+    <servlet-class>com.hrm.controller.SearchController</servlet-class>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>SearchController</servlet-name>
+    <url-pattern>/searchUser</url-pattern>
+  </servlet-mapping>
+
+</web-app>
