@@ -10,6 +10,7 @@ import java.util.List;
 import com.hrm.Dao.RegisterDao;
 import com.hrm.Dao.RegisterDaoImp;
 import com.hrm.Models.RegisterModel;
+import com.hrm.Models.UserLogin;
 import com.hrm.util.DbConnection;
 
 public class UserServiceImpl implements UserService {
@@ -100,5 +101,10 @@ public class UserServiceImpl implements UserService {
 	    }
 	    return model;
 	}
-
+	
+	@Override
+	public RegisterModel login(String email, String password, String userName, long mobileNo) {
+		RegisterDao registerDao = new RegisterDaoImp();
+		return registerDao.login(email,password,userName,mobileNo); 
+	}
 }

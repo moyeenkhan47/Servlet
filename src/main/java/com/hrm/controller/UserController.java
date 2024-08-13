@@ -34,6 +34,7 @@ public class UserController extends HttpServlet {
 		topics.add(new Topic(topic));
 		String registerDate = request.getParameter("registerDate");
 		String pmailId = request.getParameter("pmailId");
+		String password = request.getParameter("password");
 		RegisterModel model = new RegisterModel();
 		model.setUserName(uName);
 		model.setEmail(email);
@@ -42,12 +43,13 @@ public class UserController extends HttpServlet {
 		model.setTopic(topics);
 		model.setRegisterDate(registerDate);
 		model.setPmailId(pmailId);
+		model.setPassword(password);
 		System.out.println(model);
 		// create a object for navigate service
 		UserService userService = new UserServiceImpl();
 		int resisterValue = userService.registerUser(model);
 		//System.out.println(resisterValue);
-		response.sendRedirect("register");
+		response.sendRedirect("login.jsp");
 		// request.getRequestDispatcher("register").forward(request, response);
 	}
 

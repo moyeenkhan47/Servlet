@@ -7,18 +7,19 @@ public class RegisterModel {
 	
 	private int userId;
 	private String userName; 
-	private String email;  
+	private String email; 
 	private String address;
 	private long mobileNo;
 	private Set<Topic> topic;
 	private String registerDate;  
 	private String pmailId;
+	private String password;
 	
 	public RegisterModel() {
 		super();
 	}
 	public RegisterModel(int userId, String userName, String email, String address, long mobileNo, Set<Topic> topic,
-			String registerDate, String pmailId) {
+			String registerDate, String pmailId,String password) {
 		super();
 		this.userId = userId;
 		this.userName = userName;
@@ -28,6 +29,7 @@ public class RegisterModel {
 		this.topic = topic;
 		this.registerDate = registerDate;
 		this.pmailId = pmailId;
+		this.password = password;
 	}
 	public int getUserId() {
 		return userId;
@@ -47,6 +49,7 @@ public class RegisterModel {
 	public void setEmail(String email) {
 		this.email = email;
 	}
+	
 	public String getAddress() {
 		return address;
 	}
@@ -77,12 +80,20 @@ public class RegisterModel {
 	public void setPmailId(String pmailId) {
 		this.pmailId = pmailId;
 	}
+	public String getpassword() {
+		return password;
+	}
+	public void setPassword(String password) {
+		this.password = password;
+	}
 	@Override
 	public String toString() {
 		return "RegisterModel [userId=" + userId + ", userName=" + userName + ", email=" + email + ", address="
 				+ address + ", mobileNo=" + mobileNo + ", topic=" + topic + ", registerDate=" + registerDate
-				+ ", pmailId=" + pmailId + "]";
+				+ ", pmailId=" + pmailId + ", password=" + password + "]";
 	}
+	
+	
 	
 	
 	

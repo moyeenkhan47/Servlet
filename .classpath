@@ -44,5 +44,13 @@
 			<attribute name="owner.project.facets" value="jst.web"/>
 		</attributes>
 	</classpathentry>
+	<classpathentry kind="lib" path="E:/Servlet/javax.mail.jar"/>
+	<classpathentry kind="lib" path="E:/Servlet/dsn-1.6.2.jar"/>
+	<classpathentry kind="lib" path="E:/Servlet/gimap-1.6.2.jar"/>
+	<classpathentry kind="lib" path="E:/Servlet/logging-mailhandler-1.6.2.jar"/>
+	<classpathentry kind="lib" path="E:/Servlet/mailapi-1.6.2.jar"/>
+	<classpathentry kind="lib" path="E:/Servlet/pop3-1.6.2.jar"/>
+	<classpathentry kind="lib" path="E:/Servlet/smtp-1.6.2.jar"/>
+	<classpathentry kind="lib" path="E:/Servlet/activation-1.1.jar"/>
 	<classpathentry kind="output" path="target/classes"/>
 </classpath>
