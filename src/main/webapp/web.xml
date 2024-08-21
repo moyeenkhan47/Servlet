@@ -11,11 +11,19 @@
   </welcome-file-list>
   
  
- <session-config>
-        <session-timeout>15</session-timeout> <!-- Timeout in minutes -->
-    </session-config>
+ <!-- <session-config>
+        <session-timeout>15</session-timeout> Timeout in minutes
+    </session-config> -->
     <listener>
         <listener-class>com.hrm.util.SessionListener</listener-class>
     </listener>
-    
+    <servlet>
+    <servlet-name>PdfGeneratorServlet</servlet-name>
+    <servlet-class>com.yourpackage.PdfGeneratorServlet</servlet-class>
+</servlet>
+
+<servlet-mapping>
+    <servlet-name>PdfGeneratorServlet</servlet-name>
+    <url-pattern>/generatePdf</url-pattern>
+</servlet-mapping>
 </web-app>

@@ -7,7 +7,7 @@
     <style>
         body {
             font-family: Arial, sans-serif;
-            background-color: #f2f2f2;
+            background-color: #e9ecef;
             margin: 0;
             padding: 0;
             display: flex;
@@ -20,56 +20,55 @@
 
         h2 {
             color: #333;
-            margin-top: 0; /* Remove margin-top to align at the very top */
+            margin-top: 0;
+            font-size: 24px;
+            font-weight: bold;
         }
 
         form {
-            background-color: #fff;
-            padding: 20px;
-            border-radius: 8px;
-            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+            background-color: #ffffff;
+            padding: 30px;
+            border-radius: 10px;
+            box-shadow: 0 8px 16px rgba(0, 0, 0, 0.1);
             width: 100%;
             max-width: 400px;
             box-sizing: border-box;
-            margin-top: 20px; /* Add space below the heading */
+            margin-top: 20px;
         }
 
         label {
             display: block;
-            margin-bottom: 8px;
+            margin-bottom: 10px;
             color: #555;
+            font-size: 14px;
+            font-weight: bold;
         }
 
         input[type="text"], input[type="password"] {
             width: 100%;
-            padding: 10px;
+            padding: 12px;
             margin-bottom: 20px;
-            border: 1px solid #ccc;
+            border: 1px solid #ced4da;
             border-radius: 4px;
             box-sizing: border-box;
+            font-size: 16px;
         }
 
         button {
             width: 100%;
-            padding: 10px;
-            background-color: #4CAF50;
+            padding: 12px;
+            background-color: #28a745;
             color: white;
             border: none;
             border-radius: 4px;
             cursor: pointer;
-            margin-bottom: 10px;
+            font-size: 16px;
+            transition: background-color 0.3s ease;
+            margin-bottom: 15px;
         }
 
         button:hover {
-            background-color: #45a049;
-        }
-
-        .back-button {
-            background-color: #6c757d;
-        }
-
-        .back-button:hover {
-            background-color: #5a6268;
+            background-color: #218838;
         }
 
         .register-button {
@@ -83,6 +82,28 @@
         .error-message {
             color: red;
             margin-top: 10px;
+            font-size: 14px;
+            font-weight: bold;
+        }
+
+        .form-footer {
+            margin-top: 20px;
+            text-align: center;
+        }
+
+        @media (max-width: 768px) {
+            form {
+                width: 90%;
+                padding: 20px;
+            }
+
+            button {
+                padding: 10px;
+            }
+
+            input[type="text"], input[type="password"] {
+                padding: 10px;
+            }
         }
     </style>
 </head>
@@ -90,13 +111,12 @@
     <h2>Login For User</h2>
     <form action="login" method="post">
         <label for="email">User Email:</label>
-        <input type="text" id="email" name="email" required>
+        <input type="text" id="email" name="email" placeholder="Enter your email" required>
         
         <label for="password">Password:</label>
-        <input type="password" id="password" name="password" required>
+        <input type="password" id="password" name="password" placeholder="Enter your password" required>
         
         <button type="submit">Login</button>
-  
         <button type="button" class="register-button" onclick="window.location.href='register.jsp';">Register</button>
     </form>
     <div>

@@ -1,126 +1,108 @@
-<%@ page language="java" contentType="text/html; charset=UTF-8"
-    pageEncoding="UTF-8"%>
+
 <!DOCTYPE html>
-<html>
+<html lang="en">
 <head>
-<meta charset="UTF-8">
-<title>Register Page</title>
-<style>
-body {
-    font-family: Arial, sans-serif;
-    background-color: #f8f9fa;
-    margin: 0;
+    <meta charset="UTF-8">
+    <title>Header</title>
+   <style type="text/css">
+header {
+    background-color: #343a40;
     padding: 20px;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    height: 100vh;
-}
-
-form {
-    background: #ffffff; /* Light background color for the form */
-    padding: 20px;
-    border-radius: 10px;
+    text-align: center;
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-    width: 60%;
+    border-radius: 8px;
+    color: #ffffff;
 }
 
-h2 {
-    color: #343a40;
-    text-align: center;
-    margin-bottom: 20px;
+header h1 {
+    margin: 0;
+    font-size: 2em;
+    font-family: 'Arial', sans-serif;
 }
 
-table {
-    width: 100%;
+header nav ul {
+    list-style-type: none;
+    padding: 0;
+    margin: 10px 0 0;
 }
 
-td {
-    padding: 10px;
-    vertical-align: middle;
+header nav ul li {
+    display: inline-block; /* Use inline-block for better control */
+    margin-right: 20px;
 }
 
-input[type="text"], input[type="textarea"] {
-    width: 100%;
-    padding: 8px;
-    margin: 5px 0;
-    box-sizing: border-box;
-    border: 1px solid #ccc;
+header nav ul li a {
+    text-decoration: none;
+    color: #17a2b8;
+    font-weight: bold;
+    font-family: 'Arial', sans-serif;
+}
+
+header nav ul li a:hover {
+    text-decoration:none;
+    color: #ffffff;
+    background-color: #17a2b8;
+    padding: 5px 10px;
     border-radius: 4px;
+    transition: all 0.3s ease;
 }
 
-input[type="checkbox"] {
-    margin-right: 10px;
+/* Responsive design for smaller screens */
+@media (max-width: 768px) {
+    header {
+        text-align: left;
+        padding: 15px;
+    }
+
+    header h1 {
+        font-size: 1.5em;
+    }
+
+    header nav ul {
+        margin-top: 15px;
+        text-align: center;
+    }
+
+    header nav ul li {
+        display: block; /* Stack menu items vertically */
+        margin: 10px 0;
+    }
+
+    header nav ul li a {
+        display: block; /* Make links take full width */
+        padding: 10px 15px;
+        font-size: 1em;
+    }
 }
 
-input[type="submit"], .back-button, .login-button {
-    background-color: #007bff;
-    color: white;
-    padding: 10px 20px;
-    border: none;
-    border-radius: 4px;
-    cursor: pointer;
-    font-size: 16px;
+/* Further adjustments for very small screens */
+@media (max-width: 480px) {
+    header {
+        padding: 10px;
+    }
+
+    header h1 {
+        font-size: 1.2em;
+    }
+
+    header nav ul li a {
+        font-size: 0.9em;
+        padding: 8px 10px;
+    }
 }
 
-input[type="submit"]:hover, .back-button:hover, .login-button:hover {
-    background-color: #0056b3;
-}
-
-.button-container {
-    text-align: center;
-    margin-top: 20px;
-}
-
-.back-button {
-    background-color: #6c757d;
-    margin-right: 10px;
-}
-
-.login-button {
-    background-color: #28a745;
-    margin-left: 10px;
-}
-</style>
+   </style>
 </head>
 <body>
-<form action="register" method="post">
-<h2><b>User Register Form</b></h2>
-<table>
-<tr>
-<td>User name</td>
-<td><input type="text" name="userName"></td>
-<td>Email </td>
-<td><input type="text" name="email"></td>
-</tr>
-<tr>
-<td>Address</td>
-<td><input type="textarea" name="address"></td>
-<td>Mobile No.</td>
-<td><input type="text" name="mobileNo"></td>
-</tr>
-<tr>
-<td>Topic</td>
-<td><input type="checkbox" name="topic1">Java</td>
-<td><input type="checkbox" name="topic2">Python</td>
-<td><input type="checkbox" name="topic3">Angular</td>
-</tr>
-<tr>
-<td>Register Date</td>
-<td><input type="text" name="registerDate"></td>
-<td>Parent Mail</td>
-<td><input type="text" name="pmailId"></td>
-</tr>
-<tr>
-<td>Password </td>
-<td><input type="text" name="password"></td>
-</tr>
-</table>
-<div class="button-container">
-    
-    <input type="submit" value="Register User">
-    <button type="button" class="login-button" onclick="window.location.href='login.jsp';">Login</button>
-</div>
-</form>
+    <header>
+        <h1>My Application</h1>
+        <nav>
+            <ul>
+                <li><a href="login.jsp">Student Details</a></li>
+                <li><a href="adminlogin.jsp">Admin</a></li>
+                <li><a href="register.jsp">SignUp</a></li>
+            </ul>
+        </nav>
+    </header>
 </body>
 </html>

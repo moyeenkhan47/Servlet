@@ -8,69 +8,101 @@
 <style>
 body {
     font-family: Arial, sans-serif;
-    background-color: #f8f9fa;
+    background-color: #f0f2f5;
     margin: 0;
-    padding: 20px;
+    padding: 0;
     display: flex;
     justify-content: center;
     align-items: center;
     height: 100vh;
+    text-align: center;
 }
 
 form {
-    background: #ffffff; /* Light background color for the form */
-    padding: 20px;
+    background: #ffffff;
+    padding: 30px;
     border-radius: 10px;
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-    width: 60%;
+    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.1);
+    width: 80%;
+    max-width: 700px;
+    box-sizing: border-box;
 }
 
 h2 {
     color: #343a40;
-    text-align: center;
+    font-size: 24px;
     margin-bottom: 20px;
 }
 
 table {
     width: 100%;
+    border-spacing: 0 15px;
 }
 
 td {
     padding: 10px;
     vertical-align: middle;
+    text-align: left;
+    font-size: 16px;
 }
 
 input[type="text"], textarea {
     width: 100%;
-    padding: 8px;
+    padding: 10px;
     margin: 5px 0;
     box-sizing: border-box;
-    border: 1px solid #ccc;
+    border: 1px solid #ced4da;
     border-radius: 4px;
+    font-size: 16px;
+}
+
+textarea {
+    height: 100px;
+    resize: vertical;
 }
 
 input[type="submit"], .back-button {
     background-color: #007bff;
     color: white;
-    padding: 10px 20px;
+    padding: 12px 20px;
     border: none;
     border-radius: 4px;
     cursor: pointer;
     font-size: 16px;
+    margin-top: 20px;
+    transition: background-color 0.3s ease;
+    width: 48%;
 }
 
 input[type="submit"]:hover, .back-button:hover {
     background-color: #0056b3;
 }
 
-.button-container {
-    text-align: center;
-    margin-top: 20px;
-}
-
 .back-button {
     background-color: #6c757d;
     margin-right: 10px;
+}
+
+.button-container {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+@media (max-width: 768px) {
+    form {
+        width: 90%;
+        padding: 20px;
+    }
+
+    input[type="submit"], .back-button {
+        width: 100%;
+        margin: 10px 0;
+    }
+
+    .button-container {
+        flex-direction: column;
+    }
 }
 </style>
 </head>

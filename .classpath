@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <classpath>
-	<classpathentry kind="src" output="target/classes" path="src/main/java">
+	<classpathentry kind="src" output="target/classes" path="java">
 		<attributes>
 			<attribute name="optional" value="true"/>
 			<attribute name="maven.pomderived" value="true"/>
@@ -52,5 +52,6 @@
 	<classpathentry kind="lib" path="E:/Servlet/pop3-1.6.2.jar"/>
 	<classpathentry kind="lib" path="E:/Servlet/smtp-1.6.2.jar"/>
 	<classpathentry kind="lib" path="E:/Servlet/activation-1.1.jar"/>
+	<classpathentry kind="lib" path="E:/Servlet/itextpdf-5.5.4.jar"/>
 	<classpathentry kind="output" path="target/classes"/>
 </classpath>
