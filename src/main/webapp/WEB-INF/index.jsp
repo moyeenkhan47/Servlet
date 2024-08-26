@@ -101,6 +101,8 @@ header nav ul li a:hover {
                 <li><a href="login.jsp">Student Details</a></li>
                 <li><a href="adminlogin.jsp">Admin</a></li>
                 <li><a href="register.jsp">SignUp</a></li>
+                
+    </form>
             </ul>
         </nav>
     </header>

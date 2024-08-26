@@ -56,8 +56,8 @@ public class UserController extends HttpServlet {
 		model.setPassword(password);
 
 		HttpSession session = request.getSession(false);
-		model.setLoginTime(session.getAttribute("loginTime"));
-		model.setLogoutTime(session.getAttribute("logoutTime"));
+		model.setLoginTime((String) session.getAttribute("loginTime"));
+		model.setLogoutTime((String) session.getAttribute("logoutTime"));
 
 		// create a object for navigate service
 		UserService userService = new UserServiceImpl();

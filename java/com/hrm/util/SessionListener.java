@@ -17,7 +17,7 @@ public class SessionListener implements HttpSessionListener {
         synchronized (se.getSession()) {
             // Check if the email has already been sent
             if (se.getSession().getAttribute("emailSent") == null) {
-                long loginTime = (Long) se.getSession().getAttribute("loginTime");
+                long loginTime = (long) se.getSession().getAttribute("loginTime");
                 long logoutTime = System.currentTimeMillis();
                 long duration = logoutTime - loginTime; // Duration in milliseconds
 

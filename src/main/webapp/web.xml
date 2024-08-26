@@ -1,5 +1,8 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<web-app xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns="https://jakarta.ee/xml/ns/jakartaee" xsi:schemaLocation="https://jakarta.ee/xml/ns/jakartaee https://jakarta.ee/xml/ns/jakartaee/web-app_6_0.xsd" id="WebApp_ID" version="6.0">
+<web-app xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" 
+xmlns="https://jakarta.ee/xml/ns/jakartaee" 
+xsi:schemaLocation="https://jakarta.ee/xml/ns/jakartaee 
+https://jakarta.ee/xml/ns/jakartaee/web-app_6_0.xsd" id="WebApp_ID" version="6.0">
   <display-name>HRM</display-name>
   <welcome-file-list>
     <welcome-file>index.html</welcome-file>
@@ -17,6 +20,9 @@
     <listener>
         <listener-class>com.hrm.util.SessionListener</listener-class>
     </listener>
+    <listener>
+    <listener-class>com.hrm.scheduler.SchedulerListener</listener-class>
+</listener>
     <servlet>
     <servlet-name>PdfGeneratorServlet</servlet-name>
     <servlet-class>com.yourpackage.PdfGeneratorServlet</servlet-class>

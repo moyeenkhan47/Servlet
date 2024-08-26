@@ -30,24 +30,14 @@ public class LogoutController extends HttpServlet {
             synchronized (session) {
                 // Check if the email has already been sent
                 if (session.getAttribute("emailSent") == null) {
-                    Object loginTimeObj = session.getAttribute("loginTime");
-                    long loginTime;
-                    if (loginTimeObj instanceof Long) {
-                        loginTime = (Long) loginTimeObj;
-                    } else if (loginTimeObj instanceof String) {
-                        try {
-                            loginTime = Long.parseLong((String) loginTimeObj);
-                        } catch (NumberFormatException e) {
-                            LOGGER.warning("Invalid loginTime format in session: " + loginTimeObj);
-                            loginTime = System.currentTimeMillis(); // fallback to current time
-                        }
-                    } else {
-                        LOGGER.warning("loginTime is not a Long or String: " + loginTimeObj);
-                        loginTime = System.currentTimeMillis(); // fallback to current time
-                    }
-
+                    // Retrieve login time
+                	
+                	long loginTimeInMili= (long) session.getAttribute("loginTimeInMili");
+                    
+     
+                    // Calculate duration
                     long logoutTimeMillis = System.currentTimeMillis();
-                    long duration = logoutTimeMillis - loginTime; // Duration in milliseconds
+                    long duration = logoutTimeMillis - loginTimeInMili; // Duration in milliseconds
 
                     // Convert duration to hours, minutes, seconds
                     long durationInSeconds = duration / 1000;
@@ -58,11 +48,15 @@ public class LogoutController extends HttpServlet {
                     String loginDuration = String.format("%02d hours, %02d minutes, %02d seconds", hours, minutes, seconds);
 
                     // Send email
-                    String userEmail = (String) session.getAttribute("email"); // Get user email
-                    EmailUtil.sendLogoutEmail(loginDuration, "Your Login Duration", userEmail);
-
-                    // Mark email as sent
-                    session.setAttribute("emailSent", true);
+                    String userEmail = (String) session.getAttribute("email");
+                    System.out.println(userEmail);
+                    if (userEmail != null) {
+                        EmailUtil.sendLogoutEmail(loginDuration, "Your Login Duration", userEmail);
+                        // Mark email as sent
+                        session.setAttribute("emailSent", true);
+                    } else {
+                        LOGGER.warning("User email not found in session, unable to send logout email.");
+                    }
                 } else {
                     LOGGER.info("Email already sent for session: " + session.getId());
                 }
@@ -75,11 +69,13 @@ public class LogoutController extends HttpServlet {
                     // Get the current time and format it as "HH:mm"
                     SimpleDateFormat simpleDateFormat = new SimpleDateFormat("HH:mm");
                     String logoutTime = simpleDateFormat.format(new Date(System.currentTimeMillis()));
+                    
                     session.setAttribute("logoutTime", logoutTime);
+                    
                     // Update logout time in database
                     userService.updateLogoutTime(email, logoutTime);
                 } else {
-                    LOGGER.warning("User email not found in session");
+                    LOGGER.warning("User email not found in session, unable to update logout time.");
                 }
             }
 

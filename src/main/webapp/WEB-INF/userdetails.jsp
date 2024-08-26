@@ -6,7 +6,7 @@
 <html>
 <head>
 
-    <title>User List</title>
+    <title>Student List</title>
     <link rel="stylesheet" type="text/css" href="styles.css">
    <!--  <script type="text/javascript">
         function startCountdown(seconds) {
@@ -43,6 +43,7 @@
             setInterval(checkSession, 60000); // Check session every minute
         }
     </script> -->
+  
 </head>
 <body <%-- onload="startCountdown(<%= session.getMaxInactiveInterval() %>); startSessionCheck(); --%>">
     <form action="logout" method="post">
@@ -50,9 +51,9 @@
     </form>
     <div class="container">
         <h1>Welcome, <%= session.getAttribute("userName") %>!</h1>
-        <div class="username-display">
-           <!--  <p>Your session will expire in <span id="countdown"></span>.</p> -->
-        </div>
+       <!--  <div class="username-display">
+            <p>Your session will expire in <span id="countdown"></span>.</p>
+        </div> -->
         <!-- Search Form -->
         <form action="searchUser" method="get" class="search-form">
             <input type="text" name="searchTerm" placeholder="Search by Name or userId" required>

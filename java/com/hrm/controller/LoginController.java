@@ -35,13 +35,11 @@ public class LoginController extends HttpServlet {
             session.setAttribute("login", login);
             //session.setMaxInactiveInterval(900); // Set session timeout to 900 seconds (15 minutes)
 
-            long currentTimeMillis = System.currentTimeMillis();
-            Date currentDate = new Date(currentTimeMillis);
             SimpleDateFormat simpleDateFormat = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss");
-
-            // Format the date into the desired format
-            String loginTime = simpleDateFormat.format(currentDate);
+            String loginTime = simpleDateFormat.format(new Date(System.currentTimeMillis()));
             session.setAttribute("loginTime", loginTime);
+            Long loginTimeInMiliSecond=System.currentTimeMillis();
+            session.setAttribute("loginTimeInMili", loginTimeInMiliSecond);
 
             userService.updateLoginTime(email, loginTime); // Update login time in the database
 
