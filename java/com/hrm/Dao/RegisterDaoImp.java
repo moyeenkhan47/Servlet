@@ -194,7 +194,7 @@ public class RegisterDaoImp implements RegisterDao {
                 login.setEmail(myRs.getString("email"));
                 login.setPassword(myRs.getString("password"));
                 login.setUserName(myRs.getString("userName"));
-                login.setMobileNo(myRs.getLong("mobileNo"));
+             
             }
         } catch (ClassNotFoundException | SQLException e) {
             e.printStackTrace();

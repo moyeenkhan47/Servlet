@@ -120,7 +120,7 @@ button:hover {
 </head>
 <body>
     <div class="container">
-        <form action="adminLogin" method="post">
+        <form action="${pageContext.request.contextPath}/adminLogin" method="post">
             <h2>Admin Login</h2>
             <label for="username">Username:</label>
             <input type="text" id="username" name="username" placeholder="Enter admin username"  required>

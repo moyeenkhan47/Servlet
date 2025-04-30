@@ -46,7 +46,7 @@
   
 </head>
 <body <%-- onload="startCountdown(<%= session.getMaxInactiveInterval() %>); startSessionCheck(); --%>">
-    <form action="logout" method="post">
+    <form action="${pageContext.request.contextPath}/logout" method="post">
         <input type="submit" value="Logout" class="logout-button">
     </form>
     <div class="container">

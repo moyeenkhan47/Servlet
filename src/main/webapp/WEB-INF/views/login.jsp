@@ -110,7 +110,7 @@ button:hover {
 </head>
 <body>
     <h2>Login For Students</h2>
-    <form action="login" method="post">
+    <form action="${pageContext.request.contextPath}/login" method="post">
         <label for="email">User Email:</label>
         <input type="text" id="email" name="email" placeholder="Enter your email" required>
         

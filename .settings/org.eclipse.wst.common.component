@@ -1,34 +1,30 @@
 <?xml version="1.0" encoding="UTF-8"?><project-modules id="moduleCoreId" project-version="1.5.0">
-            
+                
+    
     
     <wb-module deploy-name="HRMS">
-                        
-        
         <wb-resource deploy-path="/" source-path="/target/m2e-wtp/web-resources"/>
-                        
-        
         <wb-resource deploy-path="/" source-path="/src/main/webapp" tag="defaultRootSource"/>
-                        
-        
         <wb-resource deploy-path="/WEB-INF/classes" source-path="/src/main/resources"/>
-                        
-        
         <wb-resource deploy-path="/WEB-INF/classes" source-path="/src/test/java"/>
-                        
-        
         <wb-resource deploy-path="/WEB-INF/classes" source-path="/src/test/resources"/>
-                        
-        
         <wb-resource deploy-path="/" source-path="/src/main/webapp/WEB-INF"/>
         <wb-resource deploy-path="/WEB-INF/classes" source-path="/java"/>
-                        
+        <wb-resource deploy-path="/" source-path="/src/main/webapp/WEB-INF/views"/>
+        <wb-resource deploy-path="/" source-path="/src/main/webapp/WEB-INF/images"/>
+        <wb-resource deploy-path="/" source-path="/src/main/webapp/WEB-INF/styles"/>
+                                
+        
         
         <property name="java-output-path" value="/HRMS/target/classes"/>
-                
+                        
+        
         <property name="context-root" value="HRMS"/>
-                    
+                            
+    
     
     </wb-module>
-        
+            
+
 
 </project-modules>

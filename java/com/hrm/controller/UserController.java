@@ -2,8 +2,12 @@ package com.hrm.controller;
 
 import java.io.IOException;
 import java.io.PrintWriter;
+import java.util.Comparator;
 import java.util.HashSet;
 import java.util.List;
+import java.util.Objects;
+import java.util.logging.Logger;
+import java.util.logging.Level;
 
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
@@ -19,7 +23,11 @@ import com.hrm.Service.UserServiceImpl;
 
 @WebServlet("/register")
 public class UserController extends HttpServlet {
+	
 	private static final long serialVersionUID = 1L;
+
+	// Logger instance
+	private static final Logger logger = Logger.getLogger(UserController.class.getName());
 
 	protected void doPost(HttpServletRequest request, HttpServletResponse response)
 			throws ServletException, IOException {
@@ -33,6 +41,7 @@ public class UserController extends HttpServlet {
 		try {
 			mobileNo = Long.parseLong(request.getParameter("mobileNo"));
 		} catch (NumberFormatException e) {
+			logger.log(Level.WARNING, "Invalid mobile number format: {0}", request.getParameter("mobileNo"));
 			out.println("Invalid mobile number format.");
 			return;
 		}
@@ -43,7 +52,9 @@ public class UserController extends HttpServlet {
 		String registerDate = request.getParameter("registerDate");
 		String pmailId = request.getParameter("pmailId");
 		String password = request.getParameter("password");
-		
+
+		// Log registration details
+		logger.log(Level.INFO, "Registering user: {0}", uName);
 
 		RegisterModel model = new RegisterModel();
 		model.setUserName(uName);
@@ -56,18 +67,19 @@ public class UserController extends HttpServlet {
 		model.setPassword(password);
 
 		HttpSession session = request.getSession(false);
-		model.setLoginTime((String) session.getAttribute("loginTime"));
-		model.setLogoutTime((String) session.getAttribute("logoutTime"));
+		if (session != null) {
+			model.setLoginTime((String) session.getAttribute("loginTime"));
+			model.setLogoutTime((String) session.getAttribute("logoutTime"));
+		}
 
-		// create a object for navigate service
 		UserService userService = new UserServiceImpl();
 		int registerValue = userService.registerUser(model);
 		if (registerValue > 0) {
+			logger.log(Level.INFO, "User registered successfully: {0}", uName);
 			response.sendRedirect("login.jsp");
 		} else {
+			logger.log(Level.WARNING, "User registration failed: {0}", uName);
 			out.println("User registration failed.");
-			// Optionally, forward back to registration with an error message
-			// request.getRequestDispatcher("register.jsp").forward(request, response);
 		}
 	}
 
@@ -76,7 +88,14 @@ public class UserController extends HttpServlet {
 		response.setContentType("text/html");
 
 		UserService userService = new UserServiceImpl();
-		List<RegisterModel> userList = userService.finduser(new RegisterModel());
+		logger.log(Level.INFO, "Fetching all registered users.");
+
+		List<RegisterModel> userList = userService.finduser(new RegisterModel()).stream()
+				.filter(Objects::nonNull)
+				.sorted(Comparator.comparing(RegisterModel::getUserId).reversed())
+				.toList();
+
+		logger.log(Level.INFO, "Number of users fetched: {0}", userList.size());
 
 		request.setAttribute("alluser", userList);
 		request.getRequestDispatcher("userList.jsp").forward(request, response);

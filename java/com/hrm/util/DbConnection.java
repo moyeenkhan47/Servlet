@@ -16,7 +16,5 @@ public class DbConnection {
 		return connection;
 		
 	}
-	public static void main(String[] args) throws ClassNotFoundException, SQLException {
-		System.out.println(DbConnection.getConnection());
-	}
+	
 }

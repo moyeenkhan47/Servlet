@@ -3,7 +3,10 @@ package com.hrm.controller;
 import java.io.IOException;
 import java.sql.Date;
 import java.text.SimpleDateFormat;
+import java.util.Comparator;
 import java.util.List;
+import java.util.Objects;
+
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
@@ -21,19 +24,19 @@ public class LoginController extends HttpServlet {
 
     protected void doPost(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
-        String email = request.getParameter("email");
-        String password = request.getParameter("password");
+    	 HttpSession session = request.getSession(true);
+        String email = request.getParameter("email").trim();
+        String password = request.getParameter("password").trim();
 
         UserService userService = new UserServiceImpl();
         String userName = null;
 		RegisterModel login = userService.login(email, password,userName);
 
         if (login != null) {
-            HttpSession session = request.getSession();
             session.setAttribute("userName", login.getUserName());
             session.setAttribute("email", login.getEmail());
             session.setAttribute("login", login);
-            //session.setMaxInactiveInterval(900); // Set session timeout to 900 seconds (15 minutes)
+            session.setMaxInactiveInterval(900); // Set session timeout to 900 seconds (15 minutes)
 
             SimpleDateFormat simpleDateFormat = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss");
             String loginTime = simpleDateFormat.format(new Date(System.currentTimeMillis()));
@@ -53,9 +56,10 @@ public class LoginController extends HttpServlet {
     protected void doGet(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
         response.setContentType("text/html");
-
+        HttpSession session = request.getSession(false);
         UserService userService = new UserServiceImpl();
-        List<RegisterModel> userList = userService.finduser(new RegisterModel());
+        List<RegisterModel> userList = userService.finduser(new RegisterModel()).stream()
+        		.filter(Objects::nonNull).sorted(Comparator.comparing(RegisterModel::getUserId).reversed()).toList();
 
         request.setAttribute("alluser", userList);
         request.getRequestDispatcher("userdetails.jsp").forward(request, response);

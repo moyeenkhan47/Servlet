@@ -11,7 +11,7 @@
    
 </head>
 <body>
-    <form action="index.jsp" method="post">
+    <form action="${pageContext.request.contextPath}/index.jsp" method="post">
         <input type="submit" value="Logout" class="logout-button">
     </form>
     <div class="container">
@@ -59,9 +59,9 @@
                     <td><%= model.getLoginTime() %></td>
                     <td>
                         <div class="button-container">
-                            <a href="updateUser?userId=<%= model.getUserId() %>" class="update-button">Update</a>
-                            <a href="searchUser?userId=<%= model.getUserId() %>" class="view-button">View</a>
-                            <a href="deleteUser?id=<%= model.getUserId() %>" class="delete-button" onclick="return confirm('Are you sure you want to delete this user?');">Delete</a>
+                            <a href="${pageContext.request.contextPath}/updateUser?userId=<%= model.getUserId() %>" class="update-button">Update</a>
+                            <a href="${pageContext.request.contextPath}/searchUser?userId=<%= model.getUserId() %>" class="view-button">View</a>
+                            <a href="${pageContext.request.contextPath}/deleteUser?id=<%= model.getUserId() %>" class="delete-button" onclick="return confirm('Are you sure you want to delete this user?');">Delete</a>
                         </div>
                     </td>
                 </tr>

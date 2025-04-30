@@ -42,7 +42,7 @@ public class EmailUtil {
 			message.setText("You have successfully logged out.\n\nTotal login duration: " + duration);
 
 			// Send message
-			Transport.send(message);
+		Transport.send(message);
 			System.out.println("Logout email sent successfully...");
 		} catch (MessagingException mex) {
 			System.err.println("Failed to send email: " + mex.getMessage());

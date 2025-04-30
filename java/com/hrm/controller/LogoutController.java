@@ -66,10 +66,9 @@ public class LogoutController extends HttpServlet {
                 if (email != null) {
                     UserService userService = new UserServiceImpl();
                     
-                    // Get the current time and format it as "HH:mm"
-                    SimpleDateFormat simpleDateFormat = new SimpleDateFormat("HH:mm");
-                    String logoutTime = simpleDateFormat.format(new Date(System.currentTimeMillis()));
-                    
+                    // Get the current time and format it as "yyyy-MM-dd HH:mm:ss"
+                    SimpleDateFormat simpleDateFormat = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss");
+                    String logoutTime  = simpleDateFormat.format(new Date(System.currentTimeMillis()));
                     session.setAttribute("logoutTime", logoutTime);
                     
                     // Update logout time in database
@@ -79,7 +78,7 @@ public class LogoutController extends HttpServlet {
                 }
             }
 
-            session.invalidate(); // Invalidate the session
+            request.getSession().invalidate(); // Invalidate the session
         }
         response.sendRedirect("index.jsp"); // Redirect to login page
     }

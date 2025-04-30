@@ -21,7 +21,7 @@ public class DailyReportScheduler {
             // Define a Cron trigger that runs every day at 8 AM
             Trigger trigger = TriggerBuilder.newTrigger()
                 .withIdentity("dailyReportTrigger", "group1")
-                .withSchedule(CronScheduleBuilder.cronSchedule("0 0 16 * * ?"))
+                .withSchedule(CronScheduleBuilder.cronSchedule("0 26 16 * * ?"))
                 .build();
 
             // Schedule the job

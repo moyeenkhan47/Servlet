@@ -33,7 +33,7 @@
 
         .search-form-container {
             display: flex;
-            justify-content: center;
+            justify-content: left;
             margin: 20px auto;
         }
 

@@ -116,7 +116,7 @@ input[type="submit"]:hover, .back-button:hover, .login-button:hover {
 </style>
 </head>
 <body>
-<form action="register" method="post">
+<form action="${pageContext.request.contextPath}/register" method="post">
 <h2><b>User Register Form</b></h2>
 <table>
 <tr>

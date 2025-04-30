@@ -17,5 +17,14 @@
   </dependencies>
   <build>
     <finalName>Hrm</finalName>
+	<plugins>
+    <plugin>
+      <groupId>org.apache.maven.plugins</groupId>
+      <artifactId>maven-war-plugin</artifactId>
+      <version>3.4.0</version> <!-- You can match the plugin version shown in the error -->
+      <configuration>
+        <failOnMissingWebXml>false</failOnMissingWebXml>
+      </configuration>
+    </plugin>
   </build>
 </project>

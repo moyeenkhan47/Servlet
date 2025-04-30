@@ -111,7 +111,7 @@ input[type="submit"]:hover, .back-button:hover {
     RegisterModel model = (RegisterModel) request.getAttribute("model");
     if (model != null) {
 %>
-<form action="updateUser" method="post">
+<form action="${pageContext.request.contextPath}/updateUser" method="post">
     <input type="hidden" name="userId" value="<%= model.getUserId() %>">
     <h2><b>Update User</b></h2>
     <table>

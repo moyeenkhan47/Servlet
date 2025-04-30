@@ -13,10 +13,19 @@ https://jakarta.ee/xml/ns/jakartaee/web-app_6_0.xsd" id="WebApp_ID" version="6.0
     <welcome-file>default.htm</welcome-file>
   </welcome-file-list>
   
- 
- <!-- <session-config>
-        <session-timeout>15</session-timeout> Timeout in minutes
-    </session-config> -->
+ <filter>
+    <filter-name>UserAuthFilter</filter-name>
+    <filter-class>com.hrm.filter.UserAuthFilter</filter-class>
+</filter>
+
+<filter-mapping>
+    <filter-name>UserAuthFilter</filter-name>
+    <url-pattern>/*</url-pattern> <!-- Adjust the URL pattern based on where you want the filter applied -->
+</filter-mapping>
+
+ <session-config>
+        <session-timeout>15</session-timeout> 
+    </session-config>
     <listener>
         <listener-class>com.hrm.util.SessionListener</listener-class>
     </listener>
